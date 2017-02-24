@@ -13,4 +13,4 @@ source $DIR/venv/bin/activate
 
 python --version
 
-pip install shade
+pip install shade ansible
