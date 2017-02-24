@@ -47,8 +47,24 @@ stages:
       organization: ${PROD_ORG_NAME}
       space: ${PROD_SPACE_NAME}
       application: Pipeline
-    script: "#!/bin/bash\n\necho \"Install Ansible\"\nsetup_tools/install_ansible.sh\
-      \ \n\necho \"Run Ansible playbook\"\nansible-playbook .playbook.yml\n\necho \"Ansible playbook complete\"\n"
+    script: |
+      #!/bin/bash
+      echo "Install dependencies"
+      setup_tools/install_dependencies.sh > /dev/null
+
+      echo "Install python"
+      setup_tools/install_python.sh > /dev/null
+
+      echo "make venv"
+      setup_tools/make_venv.sh > /dev/null
+
+      echo "source ./venv/bin/activate"
+      source ./venv/bin/activate
+
+      echo "Run Ansible playbook"
+      ansible-playbook .playbook.yml
+
+      echo "Ansible playbook complete"
 hooks:
 - enabled: true
   label: null
