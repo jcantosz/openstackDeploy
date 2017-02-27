@@ -4,5 +4,5 @@ python:
 
 install: "pip install ansible shade"
 
-script: "ansible --help"
+script: "ansible .playbook.yml"
 
