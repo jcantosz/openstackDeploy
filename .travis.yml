@@ -2,7 +2,7 @@ language: python
 python:
   - "2.7"
 
-install: "pip install shade"
+install: "pip install ansible shade"
 
-script: "ansbile --help"
+script: "ansible --help"
 
