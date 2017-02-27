@@ -2,7 +2,7 @@ language: python
 python:
   - "2.7"
 
-install: "pip install ansbile shade"
+install: "pip install shade"
 
 script: "ansbile --help"
 
