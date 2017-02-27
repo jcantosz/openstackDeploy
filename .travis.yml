@@ -2,7 +2,14 @@ language: python
 python:
   - "2.7"
 
-install: "pip install ansible shade"
+script: 
+  - echo "Run test scripts here"
 
-script: "ansible-playbook .playbook.yml"
+before_deploy:
+  - pip install ansible shade
 
+deploy:
+  - provider: script
+    script: "ansible-playbook .playbook.yml"
+    on:
+      branch: master
