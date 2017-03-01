@@ -23,6 +23,7 @@
         name: "{{ os_vm_name }}"
         flavor_ram: "{{ os_vm_ram }}"
         image: "{{ os_vm_image }}"
-      register: "server_instance"
+      register: server_instance
     - name: "Debug server info"
-      debug: var="{{ server_instance }}"
+      debug: 
+        var: server_instance
